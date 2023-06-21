@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 ''' module for file_storage tests '''
+import os
 import unittest
 import MySQLdb
 from models.user import User
 from models import storage
 from datetime import datetime
-import os
+
 
 @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db',
                  'db_storage test not supported')
