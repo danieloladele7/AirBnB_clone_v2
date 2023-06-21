@@ -9,7 +9,7 @@ import unittest
 from io import StringIO
 from unittest.mock import patch
 
-from console import HBNBCommand
+from AirBnB_clone_v2.old.console import HBNBCommand
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
