@@ -17,3 +17,4 @@ class City(BaseModel, Base):
     else:
         name = ''
         state_id = ''
+        places = []

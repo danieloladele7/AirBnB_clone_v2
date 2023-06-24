@@ -24,9 +24,8 @@ class State(BaseModel, Base):
                 FileStorage relationship between State and City
             '''
             from models import storage
-            related_cities = []
-            cities = storage.all(City)
-            for city in cities.values():
+            city_list = []
+            for city in storage.all("City").values():
                 if city.state_id == self.id:
-                    related_cities.append(city)
-            return related_cities
+                    city_list.append(city)
+            return city_list
