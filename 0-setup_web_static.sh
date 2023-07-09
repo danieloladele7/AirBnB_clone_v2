@@ -36,7 +36,7 @@ sudo cp /etc/nginx/sites-enabled/default nginx-sites-enabled_default.backup
 
 #--setup the content of /data/web_static/current/
 # to redirect to webcronx.tech/hbnb_static
-sudo sed -i '19i\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n' /etc/nginx/sites-available/default
+sudo sed -i '38i\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n' /etc/nginx/sites-available/default
 echo -e "\e[1;32m Symbolic link created\e[0m"
 echo
 
