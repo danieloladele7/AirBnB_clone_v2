@@ -6,21 +6,19 @@
 - return archive path if successful. Otherwise, it should return None
 '''
 
-from fabric.api import local
 from datetime import datetime
+from fabric.api import local
+from os.path import isdir
 
-from fabric.decorators import runs_once
 
-
-@runs_once
 def do_pack():
-    '''generates .tgz archive from the contents of the web_static folder'''
-    local("mkdir -p versions")
-    path = ("versions/web_static_{}.tgz"
-            .format(datetime.strftime(datetime.now(), "%Y%m%d%H%M%S")))
-    result = local("tar -cvzf {} web_static"
-                   .format(path))
-
-    if result.failed:
+    """Generates a .tgz archive from the contents of the web_static folder"""
+    try:
+        date = datetime.now().strftime("%Y%m%d%H%M%S")
+        if isdir("versions") is False:
+            local("mkdir versions")
+        file_name = "versions/web_static_{}.tgz".format(date)
+        local("tar -cvzf {} web_static".format(file_name))
+        return file_name
+    except Exception:
         return None
-    return path
