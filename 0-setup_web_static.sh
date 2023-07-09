@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # bash script to set up web servers 01 and 02
 # Also for the deployment of web_static
-
 echo -e "\e[1;32m Setting UP Server...\e[0m"
 
 #--Updating the packages and installing nginx
@@ -29,7 +28,7 @@ echo
 sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 
 #--give user ownership to directory
-sudo chown -R ubuntu:ubuntu /data
+sudo chown -hR ubuntu:ubuntu /data
 
 #--backup default server config file
 sudo cp /etc/nginx/sites-enabled/default nginx-sites-enabled_default.backup
